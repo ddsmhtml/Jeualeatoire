@@ -26,13 +26,16 @@ input {
 }
 
 #bouton:hover {
-	background-color: coral;
+	background-color: yellow;
 	cursor: pointer;
 }
 
-#nombre:hover {
+#nombre:not(:placeholder-shown) {
 	background-color: beige;
-	cursor: pointer;
+}
+
+#nombre:placeholder-shown + #bouton {
+	display: none;
 }
 
 
