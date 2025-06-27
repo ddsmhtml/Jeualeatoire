@@ -1,6 +1,8 @@
 <html>
 <head>
 <title> jeu de hasard </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <link rel="icon" href="https://fav.farm/🎲" />
 
 <style type="text/css">
@@ -59,16 +61,15 @@ form.addEventListener("submit", (e) => {
   let nombre=inputNombre.value
   inputNombre.value=""
 
-  console.log(form, form.nodeName, form.id)
+
   if (compteur==0) {
     pMsg.innerText = "perdu!"
-    //inputNombre.disabled = true
-    //inputBouton.disabled = true  
-    form.remove()              
+        form.remove()              
   }else {
 
   	if (nombreatrouver==nombre){
   	  pMsg.innerText = "gagné!"
+              form.remove()
   	} else if (nombreatrouver<nombre) {
    	 pMsg.innerText = "trop grand"
   	} else {
@@ -86,4 +87,5 @@ form.addEventListener("submit", (e) => {
 </body>
 
 </html>
+
 
