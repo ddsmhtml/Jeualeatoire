@@ -84,23 +84,24 @@ form.addEventListener("submit", (e) => {
 	e.preventDefault()
 
   compteur = compteur - 1
-  pTour.innerText = compteur + " essais"
+  pTour.innerText = compteur + " essai" + (compteur>1 ? "s" : "")
+  
   let nombre=inputNombre.value
   inputNombre.value=""
 
 
   if (compteur==0) {
-    pMsg.innerText = "perdu!"
+    pMsg.innerText = "Perdu !"
         form.remove()              
   }else {
 
   	if (nombreatrouver==nombre){
-  	  pMsg.innerText = "gagné!"
+  	  pMsg.innerText = "Gagné !"
               form.remove()
   	} else if (nombreatrouver<nombre) {
-   	 pMsg.innerText = "trop grand"
+   	 pMsg.innerText = "Trop grand..."
   	} else {
-    	 pMsg.innerText = "trop petit"
+    	 pMsg.innerText = "Trop petit..."
   	}
   }
 }, false)
