@@ -1,0 +1,89 @@
+<html>
+<head>
+<title> jeu de hasard </title>
+<link rel="icon" href="https://fav.farm/🎲" />
+
+<style type="text/css">
+
+body  {
+	background-color:pink;
+	font-family:cursive;
+ }
+
+</style>
+
+
+</head>
+
+
+<body>
+<h1> Jeu aléatoire🎲 </h1>
+<p>Choisissez un nombre entre 1 et 1000 🤗</p>
+
+<p id="tour">10 essais</p>
+
+	<form id="form">
+	  <input type="number" required id="nombre" /> 
+	  <input type="submit" 
+id="bouton"
+value="envoyer" />
+	</form>
+
+<p id="msg"></p>
+<!-- commentaire-->
+
+
+<script>
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
+let nombreatrouver = getRandomInt(1000);
+console.log(nombreatrouver);
+
+let compteur=10
+
+let inputNombre = document.getElementById("nombre")
+let inputBouton= document.getElementById("bouton")
+
+let pMsg = document.getElementById("msg")
+let pTour = document.getElementById("tour")
+
+
+let form = document.getElementById("form")
+form.addEventListener("submit", (e) => {
+	e.preventDefault()
+
+  compteur = compteur - 1
+  pTour.innerText = compteur + " essais"
+  let nombre=inputNombre.value
+  inputNombre.value=""
+
+  console.log(form, form.nodeName, form.id)
+  if (compteur==0) {
+    pMsg.innerText = "perdu!"
+    //inputNombre.disabled = true
+    //inputBouton.disabled = true  
+    form.remove()              
+  }else {
+
+  	if (nombreatrouver==nombre){
+  	  pMsg.innerText = "gagné!"
+  	} else if (nombreatrouver<nombre) {
+   	 pMsg.innerText = "trop grand"
+  	} else {
+    	 pMsg.innerText = "trop petit"
+  	}
+  }
+}, false)
+
+
+
+
+
+
+</script>
+</body>
+
+</html>
+
